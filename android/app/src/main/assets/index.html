@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>ForgeFit | Gym App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">F</div>
+          <div>
+            <p class="eyebrow">Performance Club</p>
+            <h1>ForgeFit</h1>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#dashboard">Overview</a>
+          <a href="#planner">Planner</a>
+          <a href="#nutrition">Nutrition</a>
+          <a href="#progress">Progress</a>
+        </nav>
+
+        <button class="ghost-button">+ New plan</button>
+      </header>
+
+      <main class="container">
+        <section class="hero panel">
+          <div class="hero-copy">
+            <p class="eyebrow success">Today's focus</p>
+            <h2>Build strength. Recover smarter. Stay consistent.</h2>
+            <p>
+              Your training rhythm is on track. Push through the next block and keep your
+              momentum high.
+            </p>
+            <div class="hero-actions">
+              <button id="addWorkoutBtn" class="primary-button">Log workout</button>
+              <button class="secondary-button">View schedule</button>
+            </div>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-card accent">
+              <span>Current streak</span>
+              <strong>16 days</strong>
+            </div>
+            <div class="metric-card">
+              <span>Weekly volume</span>
+              <strong>5.8k kg</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="dashboard" class="stats-grid" aria-label="Dashboard statistics"></section>
+
+        <section id="planner" class="content-grid">
+          <div class="panel form-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Quick log</p>
+                <h3>Track a lift</h3>
+              </div>
+            </div>
+
+            <form id="workoutForm">
+              <div class="field-group">
+                <label for="exerciseName">Exercise</label>
+                <select id="exerciseName" name="exerciseName" required>
+                  <option value="Bench Press">Bench Press</option>
+                  <option value="Squat">Squat</option>
+                  <option value="Deadlift">Deadlift</option>
+                  <option value="Overhead Press">Overhead Press</option>
+                  <option value="Pull-ups">Pull-ups</option>
+                  <option value="Leg Press">Leg Press</option>
+                  <option value="Cable Row">Cable Row</option>
+                  <option value="Dumbbell Curl">Dumbbell Curl</option>
+                </select>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="sets">Sets</label>
+                  <input id="sets" name="sets" type="number" min="1" max="12" value="4" required />
+                </div>
+                <div class="field-group">
+                  <label for="reps">Reps</label>
+                  <input id="reps" name="reps" type="number" min="1" max="20" value="8" required />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="weight">Weight (kg)</label>
+                <input id="weight" name="weight" type="number" min="1" step="1" value="70" required />
+              </div>
+
+              <button type="submit" class="primary-button full-width">Save session</button>
+            </form>
+          </div>
+
+          <div class="panel list-panel">
+            <div class="panel-header split">
+              <div>
+                <p class="eyebrow">Workout plan</p>
+                <h3>This week</h3>
+              </div>
+              <button id="clearHistory" class="text-button">Clear</button>
+            </div>
+            <ul id="workoutList" class="session-list"></ul>
+          </div>
+        </section>
+
+        <section class="content-grid lower-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Movement menu</p>
+                <h3>Exercise library</h3>
+              </div>
+            </div>
+            <div id="exerciseLibrary" class="exercise-library"></div>
+          </div>
+
+          <div id="nutrition" class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Nutrition</p>
+                <h3>Meal guidance</h3>
+              </div>
+            </div>
+            <div id="mealPlan" class="meal-plan"></div>
+          </div>
+        </section>
+
+        <section id="progress" class="panel progress-panel">
+          <div class="panel-header split">
+            <div>
+              <p class="eyebrow">Progress</p>
+              <h3>Strength momentum</h3>
+            </div>
+            <span class="pill success">+12.4% this month</span>
+          </div>
+          <div id="progressBars" class="progress-bars"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
